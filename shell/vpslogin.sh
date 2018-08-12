@@ -19,20 +19,20 @@ send  "cd /root/script\r"
 expect "*#"
 send  "pwd\r"
 expect "*#"
-# send "./backupblog.sh\r"
-# expect "*#"
+send "./backupblog.sh\r"
+expect "*#"
 send "exit\r"
 expect "logout"
 expect "$"
 
 
-# spawn scp -r ${username}@${ip}:${blogpath}/${package} ${package}
-# expect {
-# "*yes/no" { send "yes\r"; exp_continue }
-# "*password:" { send "$password\r" }
-# }
-# expect "100%"
-# expect "$"
+spawn scp -r ${username}@${ip}:${blogpath}/${package} ${package}
+expect {
+"*yes/no" { send "yes\r"; exp_continue }
+"*password:" { send "$password\r" }
+}
+expect "100%"
+expect "$"
 
 
 spawn ssh ${username}@${ip}
