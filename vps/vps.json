@@ -1,0 +1,21 @@
+{
+"server": "a.b.c.d",
+"server_ipv6": "::",
+"server_port": 6000,
+"local_address": "127.0.0.1",
+"local_port": 1081,
+"password": "helloworld",
+"timeout": 600,
+"udp_timeout": 120,
+"method": "chacha20",
+"protocol": "auth_sha1_v4_compatible",
+"protocol_param": "",
+"obfs": "tls1.2_ticket_auth_compatible",
+"obfs_param": "",
+"dns_ipv6": false,
+"connect_verbose_info": 1,
+"redirect": "",
+"fast_open": false,
+"workers": 1
+}
+
