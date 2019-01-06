@@ -1,0 +1,28 @@
+sudo apt install mysql-server
+sudo mysql -u root -p     # press enter
+update mysql.user set authentication_string=password('root') where user='root' ;   #更新root密码
+
+
+SELECT User, Host, authentication_string FROM mysql.user; #可以查看上面更改密码是否生效
+
+
+CREATE DATABASE demodb;
+
+show databases;
+
+
+
+INSERT INTO mysql.user (User,Host,authentication_string,ssl_cipher,x509_issuer,x509_subject)
+VALUES('demouser','localhost',PASSWORD('demopassword'),'','','');
+
+
+
+FLUSH PRIVILEGES;
+
+
+
+#给用户demouser所用对demodb数据库的访问权限
+GRANT ALL PRIVILEGES ON demodb.* to demouser@localhost;
+
+#查看权限
+SHOW GRANTS FOR 'demouser'@'localhost';
